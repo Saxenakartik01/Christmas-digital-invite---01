@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-script: "Great Vibes", "Pinyon Script", cursive;
+  --font-title: "Pinyon Script", "Great Vibes", cursive;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --color-forest: #1d3b2a;
+  --color-forest-deep: #12291d;
+  --color-cranberry: #9d1b25;
+  --color-ivory: #f8efdc;
+  --color-gold: #c9a266;
+  --color-paper: #f6ead2;
+}
+
+html,
+body {
+  margin: 0;
+  background: #f6ead4;
+}
+
+body {
+  font-family: var(--font-serif);
+  color: #2a1d12;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-bg {
+  background:
+    radial-gradient(ellipse at 50% 0%, #fbf3e2 0%, rgba(251, 243, 226, 0) 60%),
+    radial-gradient(ellipse at 50% 100%, #f1e0c0 0%, rgba(241, 224, 192, 0) 55%),
+    #f7ecd7;
+}
+
+.gold-text {
+  background: linear-gradient(180deg, #f6dfa4 0%, #d9b46e 55%, #b58a47 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+}
+
+.parchment {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 60%),
+    linear-gradient(160deg, #f8ecd0 0%, #efdcb2 100%);
+  box-shadow:
+    inset 0 0 0 0.5cqw rgba(201, 162, 102, 0.55),
+    inset 0 0 6cqw rgba(160, 116, 52, 0.35),
+    0 1cqw 4cqw rgba(0, 0, 0, 0.45);
+}
+
+@keyframes snowfall {
+  0% { transform: translate3d(0, -10%, 0); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translate3d(var(--drift, 10px), 110cqh, 0); opacity: 0.2; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.35; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.2cqw); }
+}
+@keyframes tap {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1.5cqw) scale(1.06); }
+}
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 1cqw rgba(255, 214, 140, 0.35)); }
+  50% { filter: drop-shadow(0 0 3cqw rgba(255, 214, 140, 0.85)); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(3cqw); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes burst {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+.snowflake {
+  position: absolute;
+  top: 0;
+  border-radius: 9999px;
+  background: #fff;
+  animation: snowfall linear infinite;
+  pointer-events: none;
+}
+.twinkle { animation: twinkle 2.6s ease-in-out infinite; }
+.floaty { animation: floaty 4s ease-in-out infinite; }
+.tap-anim { animation: tap 1.8s ease-in-out infinite; }
+.glow-anim { animation: glow 3s ease-in-out infinite; }
+.rise { animation: rise 0.9s ease-out both; }
+.burst { animation: burst 0.9s ease-out forwards; }
